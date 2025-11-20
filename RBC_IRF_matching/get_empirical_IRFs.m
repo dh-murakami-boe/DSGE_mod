@@ -1,5 +1,5 @@
-function [IRF_mat,IRF_weighting,IRF_quantiles]=get_empirical_IRFs(IRF_length,parametric_dummy)
-% function [IRF_mat,IRF_weighting,IRF_quantiles]=get_empirical_IRFs(IRF_length)
+function [IRF_empirical,IRF_weighting,IRF_quantiles]=get_empirical_IRFs(IRF_length,parametric_dummy)
+% function [IRF_empirical,IRF_weighting,IRF_quantiles]=get_empirical_IRFs(IRF_length)
 % Estimates the IRFs to a goverment spending shock following
 % Blanchard/Perotti (2002), employing a residual bootstrap to derive the
 % confidence bands; as in Blanchard/Perotti, the confidence bands are
@@ -14,7 +14,7 @@ function [IRF_mat,IRF_weighting,IRF_quantiles]=get_empirical_IRFs(IRF_length,par
 %   parametric_dummy    [scalar]                1: use symmetric bands based on normal distribution
 %                                               0: use quantiles
 % Outputs:
-%   IRF_mat             [nperiods by nvars]  matrix of empirical IRFs
+%   IRF_empirical             [nperiods by nvars]  matrix of empirical IRFs
 %   IRF_weighting       [nperiods*nvars by nperiods*nvars]     matrix of weights for IRF matching 
 %                                                               (a matrix with the inverse of the 
 %                                                               variances of the IRFS on the diagonal)
@@ -122,7 +122,7 @@ for boot_iter=1:IRF_length
 end
 
 %select IRFs for matching
-IRF_mat=[IRFs_point(G_pos,:)' IRFs_point(Y_pos,:)'];
+IRF_empirical=[IRFs_point(G_pos,:)' IRFs_point(Y_pos,:)'];
 
 %% get uncertainty bands
 nbootstraps = 100;

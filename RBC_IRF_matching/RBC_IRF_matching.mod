@@ -112,38 +112,54 @@ gshare=0.2038;
 
 model;
 # rho_g_1= (root_g_1+root_g_2);
+
 # rho_g_2= - root_g_1*root_g_2;
+
 [name='Euler equation']
-c^(-sigma)=beta/gammax*c(+1)^(-sigma)*
-    (alpha*exp(z(+1))*(k/l(+1))^(alpha-1)+(1-delta));
+c^(-sigma) = beta/gammax*c(+1)^(-sigma) * (alpha*exp(z(+1))*(k/l(+1))^(alpha-1)+(1-delta));
+
 [name='Labor FOC']
-psi*c^sigma*1/(1-l)=w;
+psi*c^sigma*1/(1-l) = w;
+
 [name='Law of motion capital'] 
-gammax*k=(1-delta)*k(-1)+invest;
+gammax*k = (1-delta)*k(-1) + invest;
+
 [name='resource constraint']
-y=invest+c+g_ss*exp(ghat);
+y = invest + c + g_ss*exp(ghat);
+
 [name='production function']
 y=exp(z)*k(-1)^alpha*l^(1-alpha);
+
 [name='real wage/firm FOC labor']
-w=(1-alpha)*y/l;
+w = (1-alpha)*y/l;
+
 [name='annualized real interst rate/firm FOC capital']
-r=4*alpha*y/k(-1);
+r = 4*alpha*y/k(-1);
+
 [name='exogenous TFP process']
-z=rhoz*z(-1)+eps_z;
+z = rhoz*z(-1)+eps_z;
+
 [name='government spending process']
-ghat=rho_g_1*ghat(-1)+rho_g_2*ghat(-2)+eps_g;
+ghat = rho_g_1*ghat(-1) + rho_g_2*ghat(-2) + eps_g;
+
 [name='Definition log output']
 log_y = log(y);
+
 [name='Definition log capital']
 log_k = log(k);
+
 [name='Definition log consumption']
 log_c = log(c);
+
 [name='Definition log hours']
 log_l = log(l);
+
 [name='Definition log wage']
 log_w = log(w);
+
 [name='Definition log investment']
 log_invest = log(invest);
+
 end;
 
 %----------------------------------------------------------------
